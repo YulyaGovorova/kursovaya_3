@@ -1,7 +1,7 @@
 import json
 import pytest
 
-import utils
+
 import main
 
 
@@ -114,5 +114,4 @@ def test_6_items():
             "to": "Счет 74489636417521191160"
         },
     ]
-
 
