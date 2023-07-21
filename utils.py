@@ -2,6 +2,7 @@ import json
 from operator import itemgetter
 from datetime import datetime
 
+
 def get_operations(path_file: str):
     """
     Функция получает данные из файла operations.json в корне проекта и отбрасывает пустые словари
@@ -14,6 +15,7 @@ def get_operations(path_file: str):
                 result.append(item)
 
     return result
+
 
 def filter_by_state(data_list: list, st_val: str) -> list:
     """
@@ -47,6 +49,7 @@ def templ_operation(oper_dict: dict):
     currency_op = oper_dict.get('operationAmount', {}).get('currency', {}).get('name')
     return data_op, descr_op, source_op, destin_op, amount_op, currency_op
 
+
 def format_date(date: str) -> str:
     """
     Функция конвертирует строку даты в дату, форматирует и возвращает в виде строки
@@ -56,6 +59,7 @@ def format_date(date: str) -> str:
     date_type = datetime.strptime(date[:10], "%Y-%m-%d")
     result = date_type.strftime("%d.%m.%Y")
     return result
+
 
 def add_mask(original_str: str):
     """
