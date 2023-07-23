@@ -1,6 +1,6 @@
 import json
 import pytest
-
+import utils
 
 import main
 
@@ -115,3 +115,14 @@ def test_6_items():
         },
     ]
 
+def test_get_date():
+    assert utils.format_date('2018-07-11T02:26:18.671407') == '11.07.2018'
+
+def test_mask_from_to_msg():
+    assert utils.add_mask('Visa Gold 9447344650495960') == 'Visa Gold 9447 34** **** 5960'
+    assert utils.add_mask('Visa Platinum 2241653116508487') == 'Visa Platinum 2241 65** **** 8487'
+    assert utils.add_mask('Visa Classic 7022985698476865') == 'Visa Classic 7022 98** **** 6865'
+    assert utils.add_mask('Maestro 8045769817179061') == 'Maestro 8045 76** **** 9061'
+    assert utils.add_mask('MasterCard 3152479541115065') == 'MasterCard 3152 47** **** 5065'
+    assert utils.add_mask('МИР 8201420097886664') == 'МИР 8201 42** **** 6664'
+    assert utils.add_mask('Счет 14073196441261107791') == 'Счет **7791'
